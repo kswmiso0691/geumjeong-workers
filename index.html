@@ -408,32 +408,6 @@
             box-shadow: 0 8px 40px rgba(0,0,0,0.3);
         }
 
-        .call-icon {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            animation: iconPulse 2s ease-in-out infinite;
-            z-index: 2;
-        }
-
-        .call-icon.i1 { top: 12%; left: 18%; animation-delay: 0s; background: rgba(93,232,223,0.2); border: 1px solid rgba(93,232,223,0.4); }
-        .call-icon.i2 { top: 25%; right: 15%; animation-delay: 0.4s; background: rgba(240,216,122,0.2); border: 1px solid rgba(240,216,122,0.4); }
-        .call-icon.i3 { top: 50%; left: 10%; animation-delay: 0.8s; background: rgba(93,232,223,0.2); border: 1px solid rgba(93,232,223,0.4); }
-        .call-icon.i4 { top: 40%; right: 8%; animation-delay: 1.2s; background: rgba(240,216,122,0.2); border: 1px solid rgba(240,216,122,0.4); }
-        .call-icon.i5 { bottom: 25%; left: 22%; animation-delay: 0.6s; background: rgba(93,232,223,0.2); border: 1px solid rgba(93,232,223,0.4); }
-        .call-icon.i6 { bottom: 15%; right: 20%; animation-delay: 1s; background: rgba(240,216,122,0.2); border: 1px solid rgba(240,216,122,0.4); }
-        .call-icon.i7 { top: 65%; left: 35%; animation-delay: 1.4s; background: rgba(93,232,223,0.2); border: 1px solid rgba(93,232,223,0.4); }
-        .call-icon.i8 { top: 18%; left: 50%; animation-delay: 0.2s; background: rgba(240,216,122,0.2); border: 1px solid rgba(240,216,122,0.4); }
-
-        @keyframes iconPulse {
-            0%, 100% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.15); opacity: 1; }
-        }
 
         .call-title {
             font-family: 'Noto Serif KR', serif;
@@ -457,14 +431,12 @@
             .call-map-wrap { max-width: 320px; }
             .call-title { font-size: 1.6rem; }
             .call-desc { font-size: 1.05rem; }
-            .call-icon { width: 34px; height: 34px; font-size: 1rem; }
         }
 
         @media (max-width: 480px) {
-            .call-map-wrap { max-width: 260px; }
+            .call-map-wrap { max-width: 280px; }
             .call-title { font-size: 1.4rem; }
             .call-desc { font-size: 1rem; }
-            .call-icon { width: 30px; height: 30px; font-size: 0.9rem; }
         }
 
         /* ===== About Section ===== */
@@ -1174,81 +1146,112 @@
     <section class="call-section">
         <div class="container fade-up">
             <div class="call-map-wrap">
-                <svg class="anyang-map" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
-                    <!-- 배경 -->
-                    <rect width="420" height="420" rx="20" fill="#0c1a30"/>
-                    <!-- 산/녹지 영역 -->
-                    <ellipse cx="80" cy="60" rx="90" ry="50" fill="rgba(40,80,60,0.4)"/>
-                    <ellipse cx="370" cy="100" rx="70" ry="55" fill="rgba(40,80,60,0.35)"/>
-                    <ellipse cx="50" cy="350" rx="60" ry="45" fill="rgba(40,80,60,0.3)"/>
-                    <!-- 관악산 -->
-                    <text x="75" y="45" fill="rgba(100,180,130,0.5)" font-size="10" text-anchor="middle" font-family="'Noto Sans KR'">관악산</text>
-                    <!-- 수리산 -->
-                    <text x="365" y="85" fill="rgba(100,180,130,0.5)" font-size="10" text-anchor="middle" font-family="'Noto Sans KR'">수리산</text>
+                <svg class="anyang-map" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" style="background:#1a2e50; border-radius:20px;">
+                    <defs>
+                        <radialGradient id="mapBg" cx="50%" cy="50%" r="70%">
+                            <stop offset="0%" stop-color="#243d6a"/>
+                            <stop offset="100%" stop-color="#142240"/>
+                        </radialGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <filter id="glowBig">
+                            <feGaussianBlur stdDeviation="6" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
 
-                    <!-- 주요 도로 -->
-                    <!-- 1호선 (세로) -->
-                    <line x1="210" y1="0" x2="210" y2="420" stroke="rgba(93,232,223,0.2)" stroke-width="4"/>
-                    <line x1="210" y1="0" x2="210" y2="420" stroke="rgba(93,232,223,0.08)" stroke-width="12"/>
-                    <!-- 4호선 (대각선) -->
-                    <line x1="300" y1="0" x2="120" y2="420" stroke="rgba(80,160,240,0.15)" stroke-width="4"/>
-                    <line x1="300" y1="0" x2="120" y2="420" stroke="rgba(80,160,240,0.06)" stroke-width="12"/>
-                    <!-- 관악대로 (가로) -->
-                    <line x1="0" y1="210" x2="420" y2="210" stroke="rgba(255,255,255,0.08)" stroke-width="6"/>
-                    <!-- 시민대로 -->
-                    <line x1="100" y1="100" x2="350" y2="350" stroke="rgba(255,255,255,0.06)" stroke-width="4"/>
+                    <rect width="420" height="420" rx="20" fill="url(#mapBg)"/>
+
+                    <!-- 안양시 경계 영역 -->
+                    <path d="M60,50 C120,30 200,20 320,40 C380,55 400,120 395,200 C390,280 370,340 330,380 C270,410 160,415 100,385 C50,350 25,280 30,200 C32,130 40,70 60,50Z" fill="rgba(93,232,223,0.06)" stroke="rgba(93,232,223,0.25)" stroke-width="2" stroke-dasharray="6,4"/>
+
+                    <!-- 산/녹지 영역 -->
+                    <ellipse cx="90" cy="65" rx="75" ry="42" fill="rgba(80,180,120,0.2)" stroke="rgba(80,180,120,0.15)" stroke-width="1"/>
+                    <ellipse cx="355" cy="95" rx="55" ry="40" fill="rgba(80,180,120,0.18)" stroke="rgba(80,180,120,0.12)" stroke-width="1"/>
+                    <ellipse cx="55" cy="340" rx="45" ry="35" fill="rgba(80,180,120,0.15)"/>
+                    <text x="90" y="60" fill="rgba(120,210,150,0.7)" font-size="11" text-anchor="middle" font-weight="500">관악산</text>
+                    <text x="355" y="90" fill="rgba(120,210,150,0.7)" font-size="11" text-anchor="middle" font-weight="500">수리산</text>
 
                     <!-- 안양천 -->
-                    <path d="M180,0 C185,80 195,120 190,180 C185,240 175,300 180,420" fill="none" stroke="rgba(60,140,200,0.25)" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M175,15 C180,70 192,110 188,170 C184,230 172,290 178,405" fill="none" stroke="rgba(100,180,255,0.4)" stroke-width="10" stroke-linecap="round"/>
+                    <path d="M175,15 C180,70 192,110 188,170 C184,230 172,290 178,405" fill="none" stroke="rgba(140,210,255,0.2)" stroke-width="18" stroke-linecap="round"/>
+                    <text x="160" y="130" fill="rgba(140,210,255,0.6)" font-size="9" transform="rotate(-8,160,130)">안양천</text>
 
-                    <!-- 만안구 / 동안구 구분 -->
-                    <text x="130" y="155" fill="rgba(255,255,255,0.12)" font-size="16" font-weight="700" text-anchor="middle" font-family="'Noto Sans KR'">만안구</text>
-                    <text x="290" y="290" fill="rgba(255,255,255,0.12)" font-size="16" font-weight="700" text-anchor="middle" font-family="'Noto Sans KR'">동안구</text>
+                    <!-- 주요 도로 -->
+                    <line x1="0" y1="200" x2="420" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="5" stroke-linecap="round"/>
+                    <line x1="90" y1="90" x2="345" y2="345" stroke="rgba(255,255,255,0.1)" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="320" y1="80" x2="100" y2="370" stroke="rgba(255,255,255,0.08)" stroke-width="3"/>
 
-                    <!-- 역 표시 (1호선) -->
-                    <circle cx="210" cy="90" r="5" fill="#5de8df" opacity="0.8"/>
-                    <text x="230" y="94" fill="rgba(255,255,255,0.7)" font-size="11" font-family="'Noto Sans KR'" font-weight="500">안양역</text>
+                    <!-- 1호선 노선 -->
+                    <line x1="210" y1="10" x2="210" y2="410" stroke="rgba(93,232,223,0.15)" stroke-width="16" stroke-linecap="round"/>
+                    <line x1="210" y1="10" x2="210" y2="410" stroke="rgba(93,232,223,0.5)" stroke-width="3.5" stroke-linecap="round"/>
+                    <text x="198" y="395" fill="rgba(93,232,223,0.5)" font-size="8" text-anchor="end">1호선</text>
 
-                    <circle cx="210" cy="165" r="5" fill="#5de8df" opacity="0.8"/>
-                    <text x="230" y="169" fill="rgba(255,255,255,0.7)" font-size="11" font-family="'Noto Sans KR'" font-weight="500">명학역</text>
+                    <!-- 4호선 노선 -->
+                    <line x1="295" y1="10" x2="125" y2="410" stroke="rgba(100,160,255,0.12)" stroke-width="14" stroke-linecap="round"/>
+                    <line x1="295" y1="10" x2="125" y2="410" stroke="rgba(100,160,255,0.45)" stroke-width="3" stroke-linecap="round"/>
+                    <text x="140" y="390" fill="rgba(100,160,255,0.5)" font-size="8">4호선</text>
 
-                    <circle cx="210" cy="240" r="7" fill="#f0d87a" opacity="1">
-                        <animate attributeName="r" values="7;10;7" dur="2s" repeatCount="indefinite"/>
+                    <!-- 만안구 / 동안구 -->
+                    <text x="115" y="170" fill="rgba(255,255,255,0.25)" font-size="18" font-weight="900" text-anchor="middle" letter-spacing="4">만안구</text>
+                    <text x="300" y="300" fill="rgba(255,255,255,0.25)" font-size="18" font-weight="900" text-anchor="middle" letter-spacing="4">동안구</text>
+
+                    <!-- 1호선 역들 -->
+                    <circle cx="210" cy="80" r="6" fill="#5de8df" filter="url(#glow)"/>
+                    <text x="232" y="84" fill="rgba(255,255,255,0.9)" font-size="12" font-weight="600">안양역</text>
+
+                    <circle cx="210" cy="155" r="6" fill="#5de8df" filter="url(#glow)"/>
+                    <text x="232" y="159" fill="rgba(255,255,255,0.9)" font-size="12" font-weight="600">명학역</text>
+
+                    <!-- 금정역 (강조) -->
+                    <circle cx="210" cy="235" r="20" fill="rgba(240,216,122,0.12)">
+                        <animate attributeName="r" values="20;28;20" dur="2.5s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="1;0.3;1" dur="2.5s" repeatCount="indefinite"/>
                     </circle>
-                    <circle cx="210" cy="240" r="16" fill="none" stroke="rgba(240,216,122,0.3)" stroke-width="1.5">
-                        <animate attributeName="r" values="16;22;16" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity" values="0.5;0;0.5" dur="2s" repeatCount="indefinite"/>
+                    <circle cx="210" cy="235" r="10" fill="#f0d87a" filter="url(#glowBig)">
+                        <animate attributeName="r" values="9;11;9" dur="2s" repeatCount="indefinite"/>
                     </circle>
-                    <text x="232" y="244" fill="#f0d87a" font-size="13" font-weight="700" font-family="'Noto Sans KR'">금정역</text>
+                    <text x="234" y="240" fill="#f0d87a" font-size="15" font-weight="900" filter="url(#glow)">금정역</text>
 
-                    <circle cx="210" cy="320" r="5" fill="#5de8df" opacity="0.8"/>
-                    <text x="230" y="324" fill="rgba(255,255,255,0.7)" font-size="11" font-family="'Noto Sans KR'" font-weight="500">군포역</text>
+                    <circle cx="210" cy="315" r="6" fill="#5de8df" filter="url(#glow)"/>
+                    <text x="232" y="319" fill="rgba(255,255,255,0.9)" font-size="12" font-weight="600">군포역</text>
 
-                    <!-- 4호선 역 -->
-                    <circle cx="245" cy="130" r="4.5" fill="rgba(80,160,240,0.8)"/>
-                    <text x="260" y="134" fill="rgba(255,255,255,0.6)" font-size="10" font-family="'Noto Sans KR'">범계역</text>
+                    <!-- 4호선 역들 -->
+                    <circle cx="253" cy="115" r="5.5" fill="rgba(100,160,255,0.9)" filter="url(#glow)"/>
+                    <text x="270" y="119" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="500">범계역</text>
 
-                    <circle cx="225" cy="195" r="4.5" fill="rgba(80,160,240,0.8)"/>
-                    <text x="240" y="199" fill="rgba(255,255,255,0.6)" font-size="10" font-family="'Noto Sans KR'">평촌역</text>
+                    <circle cx="232" cy="180" r="5.5" fill="rgba(100,160,255,0.9)" filter="url(#glow)"/>
+                    <text x="249" y="184" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="500">평촌역</text>
 
-                    <circle cx="195" cy="270" r="4.5" fill="rgba(80,160,240,0.8)"/>
-                    <text x="145" y="274" fill="rgba(255,255,255,0.6)" font-size="10" font-family="'Noto Sans KR'">인덕원역</text>
+                    <circle cx="195" cy="265" r="5.5" fill="rgba(100,160,255,0.9)" filter="url(#glow)"/>
+                    <text x="135" y="269" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="500">인덕원역</text>
 
-                    <!-- 안양시 라벨 -->
-                    <text x="210" y="30" fill="rgba(93,232,223,0.6)" font-size="14" font-weight="700" text-anchor="middle" font-family="'Noto Sans KR'" letter-spacing="6">안 양 시</text>
+                    <circle cx="175" cy="330" r="5" fill="rgba(100,160,255,0.9)" filter="url(#glow)"/>
+                    <text x="120" y="334" fill="rgba(255,255,255,0.8)" font-size="10" font-weight="500">산본역</text>
 
-                    <!-- 금정역 근처 모임 장소 표시 -->
-                    <rect x="260" y="228" width="110" height="26" rx="13" fill="rgba(240,216,122,0.15)" stroke="rgba(240,216,122,0.4)" stroke-width="1"/>
-                    <text x="315" y="246" fill="#f0d87a" font-size="9.5" font-weight="500" text-anchor="middle" font-family="'Noto Sans KR'">모임 장소</text>
+                    <!-- 안양시 타이틀 -->
+                    <text x="210" y="32" fill="rgba(93,232,223,0.9)" font-size="16" font-weight="900" text-anchor="middle" letter-spacing="8">안 양 시</text>
+
+                    <!-- 모임 장소 표시 -->
+                    <rect x="258" y="223" width="120" height="28" rx="14" fill="rgba(240,216,122,0.2)" stroke="rgba(240,216,122,0.6)" stroke-width="1.5"/>
+                    <text x="318" y="242" fill="#f0d87a" font-size="11" font-weight="700" text-anchor="middle">모임 장소</text>
+
+                    <!-- 직장 아이콘들 (SVG 빌딩) -->
+                    <g fill="rgba(93,232,223,0.6)" font-size="18">
+                        <text x="70" y="195">&#x1F3E2;</text>
+                        <text x="320" y="155">&#x1F3E2;</text>
+                        <text x="280" y="365">&#x1F3E2;</text>
+                        <text x="100" y="280">&#x1F3ED;</text>
+                    </g>
+                    <g fill="rgba(240,216,122,0.6)" font-size="16">
+                        <text x="140" y="100">&#x1F4BC;</text>
+                        <text x="340" y="235">&#x1F4BC;</text>
+                        <text x="80" y="370">&#x1F4BC;</text>
+                        <text x="300" y="70">&#x1F4BC;</text>
+                    </g>
                 </svg>
-                <div class="call-icon i1">&#x1F3E2;</div>
-                <div class="call-icon i2">&#x1F4BC;</div>
-                <div class="call-icon i3">&#x1F3ED;</div>
-                <div class="call-icon i4">&#x1F3E2;</div>
-                <div class="call-icon i5">&#x1F4BC;</div>
-                <div class="call-icon i6">&#x1F3ED;</div>
-                <div class="call-icon i7">&#x1F3E2;</div>
-                <div class="call-icon i8">&#x1F4BC;</div>
             </div>
             <h2 class="call-title">
                 <span class="teal">안양 지역</span> 직장을 다니시는<br>그리스도인을 찾습니다
