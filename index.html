@@ -380,6 +380,93 @@
             font-style: italic;
         }
 
+        /* ===== Call Section (안양 직장인) ===== */
+        .call-section {
+            background: linear-gradient(180deg, #142a4f 0%, #1a1852 100%);
+            text-align: center;
+            padding: 5rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .call-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .call-map-wrap {
+            position: relative;
+            max-width: 420px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .call-map-wrap img {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+        }
+
+        .call-icon {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            animation: iconPulse 2s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .call-icon.i1 { top: 12%; left: 18%; animation-delay: 0s; background: rgba(93,232,223,0.2); border: 1px solid rgba(93,232,223,0.4); }
+        .call-icon.i2 { top: 25%; right: 15%; animation-delay: 0.4s; background: rgba(240,216,122,0.2); border: 1px solid rgba(240,216,122,0.4); }
+        .call-icon.i3 { top: 50%; left: 10%; animation-delay: 0.8s; background: rgba(93,232,223,0.2); border: 1px solid rgba(93,232,223,0.4); }
+        .call-icon.i4 { top: 40%; right: 8%; animation-delay: 1.2s; background: rgba(240,216,122,0.2); border: 1px solid rgba(240,216,122,0.4); }
+        .call-icon.i5 { bottom: 25%; left: 22%; animation-delay: 0.6s; background: rgba(93,232,223,0.2); border: 1px solid rgba(93,232,223,0.4); }
+        .call-icon.i6 { bottom: 15%; right: 20%; animation-delay: 1s; background: rgba(240,216,122,0.2); border: 1px solid rgba(240,216,122,0.4); }
+        .call-icon.i7 { top: 65%; left: 35%; animation-delay: 1.4s; background: rgba(93,232,223,0.2); border: 1px solid rgba(93,232,223,0.4); }
+        .call-icon.i8 { top: 18%; left: 50%; animation-delay: 0.2s; background: rgba(240,216,122,0.2); border: 1px solid rgba(240,216,122,0.4); }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+
+        .call-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2rem;
+            color: white;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .call-title .teal { color: var(--teal); }
+
+        .call-desc {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        .call-desc .gold { color: var(--gold-light); font-weight: 500; }
+
+        @media (max-width: 768px) {
+            .call-map-wrap { max-width: 320px; }
+            .call-title { font-size: 1.6rem; }
+            .call-desc { font-size: 1.05rem; }
+            .call-icon { width: 34px; height: 34px; font-size: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .call-map-wrap { max-width: 260px; }
+            .call-title { font-size: 1.4rem; }
+            .call-desc { font-size: 1rem; }
+            .call-icon { width: 30px; height: 30px; font-size: 0.9rem; }
+        }
+
         /* ===== About Section ===== */
         .about {
             background: linear-gradient(180deg, #142a4f 0%, #0e1e35 100%);
@@ -1080,6 +1167,29 @@
                 </div>
             </div>
             <p class="highlight-verse">"한 영혼이 천하보다 귀하니라" — 마태복음 16:26</p>
+        </div>
+    </section>
+
+    <!-- Call Section -->
+    <section class="call-section">
+        <div class="container fade-up">
+            <div class="call-map-wrap">
+                <img src="위치.jpg" alt="안양시 지도">
+                <div class="call-icon i1">&#x1F3E2;</div>
+                <div class="call-icon i2">&#x1F4BC;</div>
+                <div class="call-icon i3">&#x1F3ED;</div>
+                <div class="call-icon i4">&#x1F3E2;</div>
+                <div class="call-icon i5">&#x1F4BC;</div>
+                <div class="call-icon i6">&#x1F3ED;</div>
+                <div class="call-icon i7">&#x1F3E2;</div>
+                <div class="call-icon i8">&#x1F4BC;</div>
+            </div>
+            <h2 class="call-title">
+                <span class="teal">안양 지역</span> 직장을 다니시는<br>그리스도인을 찾습니다
+            </h2>
+            <p class="call-desc">
+                <span class="gold">안양 지역 직장 전도</span>에 함께 참여해주세요
+            </p>
         </div>
     </section>
 
